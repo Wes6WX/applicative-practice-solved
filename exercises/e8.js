@@ -6,9 +6,18 @@ import { data } from "../data/data";
 
 export function findPlanetNameByMoon(data, moonName) {
   // Your code goes here...
+  const target = data.planets
+    .filter(function (n) {
+      if (n.moons) {
+        if (n.moons.includes(moonName)) {
+          return n.moons;
+        }
+      }
+    })
+    .map((n) => n.name)
+    .toString();
+  return target;
 }
-
-
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-8"
