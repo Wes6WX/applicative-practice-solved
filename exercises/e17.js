@@ -10,30 +10,24 @@
 
 export function minBy(array, cb) {
   // Your code goes here...
-  let min = Infinity,
-    minStr = "zzzz",
-    target = undefined;
-  for (let i of array) {
-    if (cb(i) < min || cb(i) < minStr) {
-      min = minStr = cb(i);
-      target = i;
+  let min = array[0];
+  for (let elem of array) {
+    if (cb(elem) < cb(min)) {
+      min = elem;
     }
   }
-  return target;
+  return min;
 }
 
 export function maxBy(array, cb) {
   // Your code goes here...
-  let max = -Infinity,
-    maxStr = "A",
-    target = undefined;
-  for (let i of array) {
-    if (cb(i) > max || cb(i) > maxStr) {
-      max = maxStr = cb(i);
-      target = i;
+  let max = array[0];
+  for (let elem of array) {
+    if (cb(elem) > cb(max)) {
+      max = elem;
     }
   }
-  return target;
+  return max;
 }
 
 // === TEST YOURSELF ===
